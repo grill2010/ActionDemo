@@ -27,7 +27,7 @@ jobs:
         java-version: 8
 
     - name: Update APT repositories for i386
-      run: sudo sed -i 's/deb http/deb [arch=i386] http/' /etc/apt/sources.list
+      run: sudo sed -i 's/deb http/deb [arch=amd64,i386] http/' /etc/apt/sources.list
     - name: Update source.list
       run: sudo grep "ubuntu.com/ubuntu" /etc/apt/sources.list | sudo tee /etc/apt/sources.list.d/ports.list
     - name: Use sed 1
