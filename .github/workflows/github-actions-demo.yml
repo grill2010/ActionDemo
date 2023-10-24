@@ -36,8 +36,8 @@ jobs:
       run: sudo sed -i 's#http://.*/ubuntu#http://ports.ubuntu.com/ubuntu-ports#' /etc/apt/sources.list.d/ports.list
     - name: Add extra platform architectures i386
       run: sudo dpkg --add-architecture i386
-    - name: Add extra platform architectures armhf
-      run: sudo dpkg --add-architecture armhf
+    #- name: Add extra platform architectures armhf
+    #  run: sudo dpkg --add-architecture armhf
     - name: Add extra platform architectures arm64
       run: sudo dpkg --add-architecture arm64
     - name: Update APT sources
