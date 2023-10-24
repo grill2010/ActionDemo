@@ -34,12 +34,14 @@ jobs:
       run: sudo sed -i 's/amd64,i386/armhf,arm64/' /etc/apt/sources.list.d/ports.list
     - name: Use sed 2
       run: sudo sed -i 's#http://.*/ubuntu#http://ports.ubuntu.com/ubuntu-ports#' /etc/apt/sources.list.d/ports.list
-    #- name: Add extra platform architectures armhf
-    #  run: sudo dpkg --add-architecture armhf
-    - name: Add extra platform architectures arm64
-      run: sudo dpkg --add-architecture arm64
     - name: Add extra platform architectures i386
       run: sudo dpkg --add-architecture i386
+    - name: Update APT sources before
+      run: sudo apt-get update || true  
+    - name: Add extra platform architectures armhf
+      run: sudo dpkg --add-architecture armhf
+    - name: Add extra platform architectures arm64
+      run: sudo dpkg --add-architecture arm64
     - name: Update APT sources
       run: sudo apt-get update || true
     - name: Install Linux x86 compilers/libraries
