@@ -1,0 +1,14 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [workflow_dispatch]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-20.04
+    steps:
+      - run: sudo sed -i 's/deb http/deb [arch=i386] http/' /etc/apt/sources.list
+      - name: Add extra platform architectures
+      run: sudo dpkg --add-architecture i386
+      - run: sudo apt-get update || true
+      - name: Install Linux x86 compilers/libraries
+      run: sudo apt-get -yq install linux-libc-dev:i386
+      - run: echo "🍏 This job's status is ${{ job.status }}."
